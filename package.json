@@ -1,6 +1,6 @@
 {
   "name": "capacitor-plugin-compass",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "obtener la orientación del dispositivo",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

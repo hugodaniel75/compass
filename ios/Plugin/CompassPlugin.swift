@@ -7,7 +7,7 @@ import CoreLocation
  * here: https://capacitorjs.com/docs/plugins/ios
  */
 @objc(CompassPlugin)
-public class ExamplePlugin: CAPPlugin, CLLocationManagerDelegate {
+public class CompassPlugin: CAPPlugin, CLLocationManagerDelegate {
     private let implementation = Compass()
     private var locationManager: CLLocationManager!
 
@@ -18,7 +18,14 @@ public class ExamplePlugin: CAPPlugin, CLLocationManagerDelegate {
         ])
     }
 
-    private var locationManager: CLLocationManager!
+    @objc func check(_ call: CAPPluginCall) {
+        if CLLocationManager.headingAvailable() {
+            requestCompassPermission(call);
+            call.resolve(["success": true])
+        } else {
+            call.resolve(["success": false])
+        }
+    }
 
     @objc func requestCompassPermission(_ call: CAPPluginCall) {
         guard CLLocationManager.locationServicesEnabled() else {
@@ -29,15 +36,7 @@ public class ExamplePlugin: CAPPlugin, CLLocationManagerDelegate {
         let locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization()
 
-        call.resolve()
-    }
-
-    @objc func check(_ call: CAPPluginCall) {
-        if CLLocationManager.headingAvailable() {
-            call.resolve(true)
-        } else {
-            call.resolve(false)
-        }
+        call.resolve(["success": true])
     }
 
     @objc func start(_ call: CAPPluginCall) {

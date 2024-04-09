@@ -20,5 +20,7 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>La aplicación necesita acceder a tu ubicación para utilizar la brújula</string>
 </dict>
 </plist>
