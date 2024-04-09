@@ -1,6 +1,6 @@
 # capacitor-plugin-compass
 
-obtener la orientación del dispositivo
+Plugin capacitor para obtener la orientación de la brújula
 
 ## Install
 
@@ -83,7 +83,3 @@ getOrientation(event: any) => any
 --------------------
 
 </docgen-api>
-
-### ios añadir en info.plist
-<key>NSLocationWhenInUseUsageDescription</key>
-<string>La aplicación necesita acceder a tu ubicación para utilizar la brújula.</string>
